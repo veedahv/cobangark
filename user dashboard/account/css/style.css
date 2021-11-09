@@ -1,0 +1,47 @@
+
+.dash-card {
+    background-blend-mode: soft-light;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    /* width: 200px; */
+    /* height: 100px; */
+}
+.bal-card {
+    background-image: url('../../assets/images/bal-card.png');
+    background-color: rgb(226, 108, 147);
+}
+.ref-card {
+    background-image: url('../../assets/images/Mask\ Group@2x.png');
+    /* background-color: rgb(101, 101, 250); */
+    background-color: var(--secondary-color);
+}
+.course-card {
+    background-image: url('../../assets/images/Mask\ Group.png');
+    background-color: rgb(250, 167, 12);
+}
+.earned-card {
+    background-image: url('../../assets/images/Mask\ Group@2x.png');
+    background-color: rgb(81, 81, 241);
+}
+
+.chart-box {
+    background-image: conic-gradient(
+        rgb(85, 187, 85) 216deg,
+        orange 216deg 320deg,
+        red 0
+    );
+    transform: rotate(-125deg);
+}
+.chart {
+    transform: rotate(125deg);
+}
+.active {
+    border-color: orange;
+}
+.complete {
+    border-color: rgb(102, 216, 102);
+}
+.active {
+    border-color: orange;
+}

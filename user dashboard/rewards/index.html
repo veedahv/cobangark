@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cobangark">
+    <link rel="stylesheet" href="../owlcarousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../owlcarousel/assets/owl.carousel.min.css">
+    <link href="../tailwind.css" rel="stylesheet">
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Cobangark</title>
+</head>
+
+<body>
+    <div class="body relative 2xl:container min-h-screen mx-auto flex items-stretch">
+        <input type="checkbox" id="nav-toggle" class="nav-toggle hidden">
+        <aside
+            class="aside lg:relative absolute top-0 left-0 right-0 bottom-0 z-50 w-full lg:w-3/12 xl:w-1/5 hidden lg:inline-flex text-white">
+            <div class="h-full w-full">
+                <ul class="navlink-contain h-full w-full py-5">
+                    <li class="nav-li w-full px-8 my-8 max-w-xs">
+                        <a href="" class="navlinks logo flex w-full">
+                            <img src="../assets/images/Group 305.png" class="navlink-img w-full" alt="Logo">
+                        </a>
+                    </li>
+                    <li class="nav-li px-8 my-8 py-1 text-white text-opacity-80 hover:text-opacity-100">
+                        <a href="../dashboard/index.html" class="navlinks flex items-center">
+                            <img src="../assets/images/dashboard.png" class="navlink-img w-5 nav-light"
+                                alt="Dashboard icon">
+                            <img src="../assets/images/dashboard@2x.png" class="navlink-img w-5 nav-bold hidden"
+                                alt="Dashboard icon">
+                            <span class="navlink-title px-2">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-li px-8 my-8 text-white text-opacity-80 hover:text-opacity-100">
+                        <a href="../profile/index.html" class="navlinks flex items-center">
+                            <img src="../assets/images/Profile Icons b.png" class="navlink-img w-5 nav-bold hidden"
+                                alt="Profile icon">
+                            <img src="../assets/images/Profile Icons.png" class="navlink-img w-5 nav-light"
+                                alt="Profile icon">
+                            <span class="navlink-title px-2">Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav-li px-8 my-8 text-white text-opacity-80 hover:text-opacity-100">
+                        <a href="../plan/index.html" class="navlinks flex items-center">
+                            <img src="../assets/images/Plan icon.png" class="navlink-img w-5 nav-light" alt="Plan icon">
+                            <img src="../assets/images/Plan icon b.png" class="navlink-img w-5 nav-bold hidden"
+                                alt="Plan icon">
+                            <span class="navlink-title px-2">My Plan</span>
+                        </a>
+                    </li>
+                    <li class="nav-li px-8 my-8 text-white text-opacity-80 hover:text-opacity-100">
+                        <a href="../courses/index.html" class="navlinks flex items-center">
+                            <img src="../assets/images/Video.png" class="navlink-img w-5 nav-light" alt="Course icon">
+                            <img src="../assets/images/Video b.png" class="navlink-img w-5 nav-bold hidden"
+                                alt="Course icon">
+                            <!-- <img src="./assets/images/c" class="navlink-img" alt="Course icon"> -->
+                            <span class="navlink-title px-2">My Courses</span>
+                        </a>
+                    </li>
+                    <li class="nav-li navlink-active px-8 my-8 text-white">
+                        <a href="../rewards/index.html" class="navlinks flex items-center">
+                            <img src="../assets/images/Haruki Icons.png" class="navlink-img w-5 nav-light"
+                                alt="Reward icon">
+                            <img src="../assets/images/rewards b.png" class="navlink-img w-5 nav-bold hidden"
+                                alt="Reward icon">
+                            <span class="navlink-title px-2">Rewards</span>
+                        </a>
+                    </li>
+                    <li class="nav-li px-8 my-8 text-white text-opacity-80 hover:text-opacity-100">
+                        <label class="navlinks flex items-center cursor-pointer" for="trans-dropcheck">
+                            <img src="../assets/images/Statistic.png" class="navlink-img w-5 nav-light"
+                                alt="Transaction icon">
+                            <img src="../assets/images/Statistic b.png" class="navlink-img w-5 nav-bold hidden"
+                                alt="Transaction icon">
+                            <span class="navlink-title px-2">Transaction</span>
+                            <button>
+                                <img src="../assets/images/arrow right.png" class="nav-light" alt="dropdown icon">
+                                <img src="../assets/images/arrow right (1).png" class="nav-bold hidden"
+                                    alt="dropdown icon">
+                            </button>
+                        </label>
+                        <input type="checkbox" id="trans-dropcheck" class="hidden trans-dropcheck">
+                        <ul class="ml-7 hidden trans-dropdown">
+                            <li class="trans-droplink text-gray-100 hover:text-white">
+                                <a href="../transaction/index.html"
+                                    class="text-white text-opacity-80 hover:text-opacity-100 mt-3.5">Transaction
+                                    History</a>
+                            </li>
+                            <li class="trans-droplink text-gray-100 hover:text-white">
+                                <a href="../withdrawals/index.html"
+                                    class="text-white text-opacity-80 hover:text-opacity-100 mt-3.5">Withdrawals</a>
+                            </li>
+                            <li class="trans-droplink text-gray-100 hover:text-white">
+                                <a href="../transfer funds/index.html"
+                                    class="text-white text-opacity-80 hover:text-opacity-100 mt-3.5">Transfer Funds</a>
+                            </li>
+                            <li class="trans-droplink text-gray-100 hover:text-white">
+                                <a href="../account/index.html"
+                                    class="text-white text-opacity-80 hover:text-opacity-100 mt-3.5">Add Account</a>
+                            </li>
+                            <li class="trans-droplink">
+                                <a href="../transactionpin/index.html"
+                                    class="text-white text-opacity-80 hover:text-opacity-100 mt-3.5">Set Transaction
+                                    Pin</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li
+                        class="nav-li px-8 my-8 text-white text-opacity-80 hover:text-opacity-100 text-white text-opacity-80 hover:text-opacity-100">
+                        <a href="../settings/index.html" class="navlinks flex items-center">
+                            <img src="../assets/images/settings icon.png" class="navlink-img nav-light w-5"
+                                alt="Settings icon">
+                            <img src="../assets/images/settings icon b.png" class="navlink-img nav-bold hidden w-5"
+                                alt="Settings icon">
+                            <span class="navlink-title px-2">Settings</span>
+                        </a>
+                    </li>
+                    <li
+                        class="nav-li px-8 my-8 text-white text-opacity-80 hover:text-opacity-100 text-white text-opacity-80 hover:text-opacity-100">
+                        <a href="" class="navlinks flex items-center">
+                            <img src="../assets/images/logout Icons.png" class="navlink-img w-5" alt="Logout icon">
+                            <span class="navlink-title px-2">Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <div class="w-full lg:w-9/12 xl:w-4/5 page-body">
+            <div class="w-full h-full py-10 px-8">
+                <nav>
+                    <div class="flex items-center justify-between lg:justify-end w-full">
+                        <div class="search-contain lg:hidden">
+                            <label for="nav-toggle">
+                                <img src="../assets/images/u_bars.png" class="w-6" alt="search icon">
+                            </label>
+                        </div>
+                        <div class="search-contain lg:hidden">
+                            <button>
+                                <img src="../assets/images/logo.png" class="w-32" alt="logo">
+                            </button>
+                        </div>
+                        <div class="search-contain">
+                            <button>
+                                <img src="../assets/images/search@2x.png" class="w-6" alt="search icon">
+                            </button>
+                        </div>
+                        <div class="notification-contain hidden lg:inline-block">
+                            <button>
+                                <img src="../assets/images/notification@2x.png" class="w-6 mx-4"
+                                    alt="notification bell">
+                            </button>
+                        </div>
+                        <div class="profile-contain hidden lg:inline-block">
+                            <a href="">
+                                <img src="../assets/images/avatar@2x.png" class="w-12" alt="profile image">
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+                <main>
+                    <h1 class="page-title my-4 text-3xl md:text-4xl font-bold">Rewards</h1>
+                    <div class="main-body">
+                        <section class="my-4">
+                            <div class="flex gap-8 flex-wrap">
+                                <div
+                                    class="card shadow-md divide-y divide-gray-300 flex-none md:flex-1 w-full bg-white rounded-2xl">
+                                    <div class="card-head">
+                                        <div class="flex justify-between px-2 py-1.5">
+                                            <h2 class="title font-medium">Your Points</h2>
+                                            <div class="range-view text-xs">
+                                                <div class="relative text-xs">
+                                                    <span>Show: </span>
+                                                    <a href="" class="color-secondary font-medium">This month</a>
+                                                </div>
+                                                <!-- <div class="absolute">
+                                                    <ul>
+                                                        <li></li>
+                                                    </ul>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- <hr class="w-full bg-black h-1"> -->
+                                    <div class="card-body px-8 py-11 points-bg">
+                                        <div class="flex">
+                                            <div class="page-title course-chart text-center">
+                                                <p class="font-bold tracking-wide text-5xl points">154</p>
+                                                <p class="font-medium text-lg">Points</p>
+                                                <p class="font-medium text-lg">Earned</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="card shadow-md divide-y divide-gray-300 flex-none sm:flex-1 w-full bg-white rounded-2xl">
+                                    <div class="card-head px-4 py-2">
+                                        <h2 class="title font-medium">Your Referral Link</h2>
+                                    </div>
+                                    <!-- <hr class="w-full bg-black h-1"> -->
+                                    <div class="card-body relative z-20 bg-white p-4">
+                                        <div
+                                            class="input-box rounded-lg relative z-20 bg-white border border-blue-200 my-8 px-2.5 py-2">
+                                            <input type="text"
+                                                class="absolute w-1 text-white h-1 top-1/2 z-0 outline-none"
+                                                id="referral-input">
+                                            <div class="flex items-center relative z-20 bg-white justify-between">
+                                                <span class="input-value text-xs" id="referral-code">
+                                                </span>
+                                                <button class="copy" id="copy-btn">
+                                                    <img src="../assets/images/copy-icon.png" class="w-5"
+                                                        alt="copy icon">
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center justify-center relative z-20 bg-white my-5 gap-2">
+                                            <a href="" aria-label="facebook">
+                                                <img src="../assets/images/Group 2378.png" class="w-5"
+                                                    alt="facebook icon">
+                                            </a>
+                                            <a href="" aria-label="twitter">
+                                                <img src="../assets/images/twitter 2.png" class="w-6"
+                                                    alt="twitter icon">
+                                            </a>
+                                            <a href="" aria-label="url">
+                                                <img src="../assets/images/link 1.png" class="w-5" alt="url icon">
+                                            </a>
+                                        </div>
+                                        <p class="w-full text-center">Share referral link</p>
+                                    </div>
+                                </div>
+                                <div class="flex-none md:flex-1 w-full">
+                                    <div class="card-head">
+                                        <h2 class="title font-medium mb-3">New Users</h2>
+                                    </div>
+                                    <div class="card shadow-md bg-white rounded-2xl">
+                                        <!-- <hr class="w-full bg-black h-1"> -->
+                                        <div class="card-body">
+                                            <table class="table text-left w-full divide-y divide-gray-200">
+                                                <thead class="thead">
+                                                    <tr>
+                                                        <th class="font-medium px-3.5 py-5 text-sm">Username</th>
+                                                        <th class="font-medium px-3.5 py-5 text-sm">Country</th>
+                                                        <th class="font-medium px-3.5 py-5 text-sm">Plan</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="divide-y divide-gray-200" id="users-tbody">
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="my-6">
+                            <div class="">
+                                <div class="w-full md:w-2/3 transactions">
+                                    <div class="">
+                                        <h2 class="font-medium">Your Rewards</h2>
+                                    </div>
+                                    <div class="w-full rewards overflow-x-scroll" id="reward-carousel">
+                                        <div class="w-max md:w-full pb-10 px-3">
+                                            <div class="card shadow-md my-4 bg-white rounded-2xl">
+                                                <table class="w-full text-left table divide-y divide-gray-300">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="font-medium px-3.5 py-4 text-sm">Basic Rewards</th>
+                                                            <th class="font-medium px-3.5 py-4 text-sm">Premium Rewards</th>
+                                                            <th class="font-medium px-3.5 py-4 text-sm">Business Rewards</th>
+                                                            <th class="font-medium px-3.5 py-4 text-sm">Referral Rewards</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class=" divide-y divide-gray-300" id="reward-body">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

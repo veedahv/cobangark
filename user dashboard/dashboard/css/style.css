@@ -1,0 +1,54 @@
+
+.dash-card {
+    /* background-blend-mode: soft-light; */
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.bal-card {
+    background-image: url('../../assets/images/bal-card.png');
+    background-color: #f44771;
+}
+.ref-card {
+    background-image: url('../../assets/images/Mask\ Group@2x.png');
+    /* background-color: #047eba; */
+    background-color: var(--secondary-color);
+}
+.course-card {
+    background-image: url('../../assets/images/Mask\ Group.png');
+    background-color: #ff9a3e;
+}
+.earned-card {
+    background-image: url('../../assets/images/Mask\ Group3.png');
+    background-color: #256cd7;
+}
+
+.chart-box {
+    background-image: conic-gradient(
+        #2ed47a 216deg,
+        #ffb946 216deg 320deg,
+        #f76b5b 0
+    );
+    transform: rotate(-125deg);
+}
+.chart {
+    transform: rotate(125deg);
+    color: #2ed47a;
+}
+.active {
+    border-color: #ffb946;
+}
+.complete {
+    border-color: #2ed47a;
+}
+.ended {
+    border-color: #f76b5b;
+}
+
+.transactions {
+    cursor: grab;
+}
+.transactions::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}

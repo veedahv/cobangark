@@ -1,0 +1,8 @@
+
+.transactions {
+    cursor: grab;
+}
+.transactions::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}

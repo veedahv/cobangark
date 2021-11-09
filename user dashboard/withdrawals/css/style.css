@@ -1,0 +1,5 @@
+
+.dash-card {
+    /* background-blend-mode: soft-light; */
+    background: var(--secondary-color) url('../../assets/images/Mask\ Group@2x.png') no-repeat center center / 100% auto;
+}

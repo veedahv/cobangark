@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #012d56;
+    --secondary-color: #259cd7;
+    --tertiary-color: #2a206f;
+    --text-color: black;
+    --light-color: white;
+}
+/* General styles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+ul {
+    list-style: none;
+}
+a {
+    color: inherit;
+    display: inline-block;
+    text-decoration: none;
+}
+select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url('./assets/images/down-Icon.png');
+    background-position: center right 8px;
+    background-repeat: no-repeat;
+    background-size: 13px auto;
+}
+
+.color-primary {
+    color: var(--primary-color);
+}
+.color-secondary {
+    color: var(--secondary-color);
+}
+.color-tertiary {
+    color: var(--tertiary-color);
+}
+.bg-primary {
+    background-color: var(--primary-color);
+}
+.border-primary {
+    border-color: var(--primary-color);
+}
+.border-secondary {
+    border-color: var(--secondary-color);
+}
+.bg-secondary {
+    background-color: var(--secondary-color);
+}
+.aside {
+    background-color: var(--primary-color);
+    /* width: 100%; */
+    /* background-color: #012d56; */
+    /* flex: 0 0 24rem; */
+}
+.nav-toggle:checked + .aside {
+    display: block;
+}
+.navlink-active {
+    border-right: var(--secondary-color) solid 4px;
+}
+.nav-li.navlink-active .nav-bold {
+    display: inline-block;
+}
+.nav-li.navlink-active .nav-light {
+    display: none;
+}
+.nav-li:hover .nav-light {
+    display: none;
+}
+.nav-li:hover .nav-bold {
+    display: inline-block;
+}
+.trans-dropcheck:checked + .trans-dropdown {
+    display: block;
+}
+.page-body {
+    background: url('./assets/images/newBG.png') no-repeat top center / cover;
+    /* flex: 0 1 0; */
+    /* flex: 1 1 auto; */
+    /* background: url('./assets/images/BG@3x.png') no-repeat top center; */
+    /* background-size: 100% auto; */
+}
+.page-title {
+    color: var(--tertiary-color);
+}

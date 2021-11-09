@@ -1,0 +1,9 @@
+
+.plan-bg {
+    background: url('../../assets/images/briefcase\ 1.png') no-repeat top -15% right -80%;
+    background-size: 70% 130%;
+}
+
+.premium-bg {
+    background: url('../../assets/images/BG-1.png') no-repeat center right / cover;
+}

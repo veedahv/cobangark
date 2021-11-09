@@ -1,0 +1,13 @@
+
+.points-bg {
+    background: url('../../assets/images/points.png') no-repeat center right;
+    background-size: 45% auto;
+}
+
+.rewards {
+    cursor: grab;
+}
+.rewards::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
