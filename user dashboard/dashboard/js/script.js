@@ -89,33 +89,6 @@ let users = [
         plan: 'Basic'
     }
 ]
-const formatValue = (val) => {
-    // let reversed = val.reverse();
-    // let valLength = val.length;
-    let reversedVal = '';
-    if (val.length > 3) {
-        for (let i = 3; i < val.length; i += 3) {
-            // let part = reversed.splice(2, 0, ',');
-            // let part = val.splice(2, 0, ',');
-            let part = val.split('').join(',');
-            reversedVal += part
-            // const element = array[i];        
-        }
-
-    } else {
-        // reversedVal = reversed;
-        reversedVal = val;
-    }
-    // return reversedVal.reverse();
-    return reversedVal;
-}
-
-// console.log(formatValue(200));
-// console.log(formatValue(200000));
-// console.log(formatValue(20000000));
-
-
-
 
 const addCourses = () => {
     courses.forEach(course => {
@@ -223,11 +196,9 @@ transactionCarousel.addEventListener('mousedown', mouseDownHandler);
 
 copyBtn.addEventListener('click', () => {
     let copyText = document.querySelector("#referral-input");
-    console.log(copyText);
     copyText.value = referralCode;
     copyText.select();
-    document.execCommand("copy");   
-    // console.log('doone'); 
+    document.execCommand("copy");  
 })
 
 
@@ -235,29 +206,4 @@ addNewUsers();
 addTransactions();
 addCourses();
 
-
-
-// let longestStr = '';
-// const splitPalindrome = (s) => {
-//     for (let i = 0; i < s.length; i++) {
-//         let sub = s.slice(0, s.length - i);
-//         let reversedStr = sub.split('').reverse().join('');
-//         if (reversedStr == sub && sub.length > longestStr.length) {
-//             longestStr = sub;
-//         }
-//     }
-// }
-// const palindromeFunc = (s) => {
-//     for (let i = 0; i < s.length; i++) {
-//         let sub = s.slice(i, s.length);
-//         splitPalindrome(sub);
-//     }
-//     console.log(longestStr);
-//     return longestStr;
-// }
-// palindromeFunc('abadgddhdhdhhh')
-// // palindromeFunc('cbbd')
-// // palindromeFunc('a')
-// // palindromeFunc('babad')
-// // palindromeFunc('ac')
 

@@ -76,38 +76,11 @@ let transactions = [
     }
 ]
 
-const formatValue = (val) => {
-    // let reversed = val.reverse();
-    // let valLength = val.length;
-    let reversedVal = '';
-    if (val.length > 3) {
-        for (let i = 3; i < val.length; i += 3) {
-            // let part = reversed.splice(2, 0, ',');
-            // let part = val.splice(2, 0, ',');
-            let part = val.split('').join(',');
-            reversedVal += part
-            // const element = array[i];        
-        }
-
-    } else {
-        // reversedVal = reversed;
-        reversedVal = val;
-    }
-    // return reversedVal.reverse();
-    return reversedVal;
-}
-
-// console.log(formatValue(200));
-// console.log(formatValue(200000));
-// console.log(formatValue(20000000));
-
-
-
 const addTransactions = () => {
     let sN = 1;
     transactions.forEach(transaction => {
         let transactionRow = `
-        <tr>
+        <tr class="transaction-row">
             <td class="px-3.5 py-5 text-sm">${sN}</td>
             <td class="px-3.5 py-5 text-sm">${transaction.transaction}</td>
             <td class="px-3.5 py-5 text-sm">${transaction.date}</td>

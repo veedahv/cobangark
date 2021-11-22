@@ -1,6 +1,28 @@
-* {
-    /* border: 2px red solid; */
+
+label {
+    display: inline-block;
 }
-html {
-    max-width: 100vw;
+.tab-active {
+    background-color: transparent;
+    border-bottom-color: var(--secondary-color);
+    /* color: ; */
+}
+.radio-tab:checked + .tab-section {
+    display: inline-block;
+}
+
+/* .noti-check + .checkbox {
+    background: url('../../assets/images/unchecked-box.png') 0 0 no-repeat;
+    background-size: 100% auto;
+} */
+.checkbox {
+    display: inline-flex;
+    /* background: url('../../assets/images/unchecked-box.png') 0 0 no-repeat; */
+    /* background-size: contain; */
+}
+.noti-check:checked + .checkbox {
+    background: var(--secondary-color);
+    /* display: inline-block; */
+    /* background: url('../../assets/images/unchecked-box.png') 0 0 no-repeat; */
+    /* background-size: contain; */
 }

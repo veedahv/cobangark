@@ -1,10 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap'); */
+
+@import url('./fonts/mazzard-web-font/stylesheet.css');
+
+@import url('./fonts/Bossa-web-font/stylesheet.css');
 
 :root {
     --primary-color: #012d56;
     --secondary-color: #259cd7;
     --tertiary-color: #2a206f;
     --text-color: black;
+    --text-light: #5a7184;
+    --text-dark: #0f1b41;
     --light-color: white;
 }
 /* General styles */
@@ -13,7 +19,7 @@
     margin: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Mazzard H', sans-serif;
 }
 ul {
     list-style: none;
@@ -33,6 +39,9 @@ select {
     background-size: 13px auto;
 }
 
+.text-light {
+    color: var(--text-light);
+}
 .color-primary {
     color: var(--primary-color);
 }
@@ -41,6 +50,9 @@ select {
 }
 .color-tertiary {
     color: var(--tertiary-color);
+}
+.color-dark {
+    color: var(--dark-color);
 }
 .bg-primary {
     background-color: var(--primary-color);
@@ -90,4 +102,6 @@ select {
 }
 .page-title {
     color: var(--tertiary-color);
+    /* font-family: 'Poppins', sans-serif; */
+    font-family: 'Bossa', sans-serif;
 }

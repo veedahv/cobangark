@@ -1,0 +1,135 @@
+@font-face {
+    font-family: 'Bossa';
+    src: url('Bossa-Bold.woff2') format('woff2'),
+        url('Bossa-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bossa';
+    src: url('Bossa-Black.woff2') format('woff2'),
+        url('Bossa-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bossa Extended';
+    src: url('Bossa-ExtendedBold.woff2') format('woff2'),
+        url('Bossa-ExtendedBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bossa Expanded';
+    src: url('Bossa-ExpandedBold.woff2') format('woff2'),
+        url('Bossa-ExpandedBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bossa Extended';
+    src: url('Bossa-ExtendedMedium.woff2') format('woff2'),
+        url('Bossa-ExtendedMedium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bossa Expanded';
+    src: url('Bossa-ExpandedBlack.woff2') format('woff2'),
+        url('Bossa-ExpandedBlack.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bossa Extended';
+    src: url('Bossa-ExtendedBlack.woff2') format('woff2'),
+        url('Bossa-ExtendedBlack.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bossa Extended';
+    src: url('Bossa-ExtendedLight.woff2') format('woff2'),
+        url('Bossa-ExtendedLight.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bossa Expanded';
+    src: url('Bossa-ExpandedRegular.woff2') format('woff2'),
+        url('Bossa-ExpandedRegular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bossa Expanded';
+    src: url('Bossa-ExpandedMedium.woff2') format('woff2'),
+        url('Bossa-ExpandedMedium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bossa Expanded';
+    src: url('Bossa-ExpandedLight.woff2') format('woff2'),
+        url('Bossa-ExpandedLight.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bossa';
+    src: url('Bossa-Regular.woff2') format('woff2'),
+        url('Bossa-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bossa Extended';
+    src: url('Bossa-ExtendedRegular.woff2') format('woff2'),
+        url('Bossa-ExtendedRegular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bossa';
+    src: url('Bossa-Light.woff2') format('woff2'),
+        url('Bossa-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bossa';
+    src: url('Bossa-Medium.woff2') format('woff2'),
+        url('Bossa-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+

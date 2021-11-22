@@ -249,7 +249,7 @@ const addCourses = (coursesContainer) => {
     courses.forEach(course => {
         // <div class="w-full sm:w-72">
         let courseCard = `
-            <div class="card w-full" id="${course.courseId}">
+            <div class="card block w-full" id="${course.courseId}">
                 <div class="flex mb-2 justify-between items-center">
                     <div
                         class="course-category capitaize font-medium text-sm text-${course.courseColor}-500 bg-${course.courseColor}-500 bg-opacity-20 px-2">
@@ -260,9 +260,9 @@ const addCourses = (coursesContainer) => {
                             alt="${course.courseSubCartegory} logo">
                     </div>
                 </div>
-                <h2 class="course-title font-bold mb-2">
+                <a href="../course/index.html#1" class="course-title font-bold mb-2">
                     ${course.courseTitle}
-                </h2>
+                </a>
                 <p class="course-desc text-sm">
                     ${course.courseDesc}
                 </p>
@@ -303,9 +303,9 @@ const addFeaturedCourses = (courseCarousel) => {
                                 class="rounded-full w-20" alt="instructor image">
                         </div>
                         <div class="course-info">
-                            <h3 class="font-medium">
+                            <a href="../course/index.html#1" class="font-medium">
                                 ${course.courseTitle}
-                            </h3>
+                            </a>
                             <h4 class="instructor-name text-xs my-1">${course.courseInstructor}</h4>
                             <div class="flex gap-3">
                                 <p class="no-of-students text-xs font-medium">${course.noOfStudents} Students</p>
@@ -366,4 +366,5 @@ const goToCourse = () => {
 }
 
 goToMain();
+// goToCourse();
 

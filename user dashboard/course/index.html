@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cobangark">
+    <link rel="stylesheet" href="../owlcarousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../owlcarousel/assets/owl.carousel.min.css">
+    <link href="../tailwind.css" rel="stylesheet">
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Cobangark</title>
+</head>
+
+<body>
+    <div class="body relative 2xl:container min-h-screen mx-auto flex items-stretch">
+        <input type="checkbox" id="nav-toggle" class="nav-toggle hidden">
+        <aside
+            class="aside lg:relative absolute top-0 left-0 right-0 bottom-0 z-50 w-full lg:w-3/12 xl:w-1/5 hidden lg:inline-flex text-white">
+            <div class="h-full w-full">
+                <ul class="navlink-contain h-full w-full py-5">
+                    <li class="nav-li w-full px-8 my-8 max-w-xs">
+                        <a href="" class="navlinks logo flex w-full">
+                            <img src="../assets/images/Group 305.png" class="navlink-img w-full" alt="Logo">
+                        </a>
+                    </li>
+                    <li class="nav-li px-8 my-8 py-1 text-white text-opacity-80 hover:text-opacity-100">
+                        <a href="../dashboard/index.html" class="navlinks flex items-center">
+                            <img src="../assets/images/dashboard.png" class="navlink-img w-5 nav-light"
+                                alt="Dashboard icon">
+                            <img src="../assets/images/dashboard@2x.png" class="navlink-img w-5 nav-bold hidden"
+                                alt="Dashboard icon">
+                            <span class="navlink-title px-2">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-li px-8 my-8 text-white text-opacity-80 hover:text-opacity-100">
+                        <a href="../profile/index.html" class="navlinks flex items-center">
+                            <img src="../assets/images/Profile Icons b.png" class="navlink-img w-5 nav-bold hidden"
+                                alt="Profile icon">
+                            <img src="../assets/images/Profile Icons.png" class="navlink-img w-5 nav-light"
+                                alt="Profile icon">
+                            <span class="navlink-title px-2">Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav-li px-8 my-8 text-white text-opacity-80 hover:text-opacity-100">
+                        <a href="../plan/index.html" class="navlinks flex items-center">
+                            <img src="../assets/images/Plan icon.png" class="navlink-img w-5 nav-light" alt="Plan icon">
+                            <img src="../assets/images/Plan icon b.png" class="navlink-img w-5 nav-bold hidden"
+                                alt="Plan icon">
+                            <span class="navlink-title px-2">My Plan</span>
+                        </a>
+                    </li>
+                    <li class="nav-li navlink-active px-8 my-8 text-white">
+                        <a href="../courses/index.html" class="navlinks flex items-center">
+                            <img src="../assets/images/Video.png" class="navlink-img w-5 nav-light" alt="Course icon">
+                            <img src="../assets/images/Video b.png" class="navlink-img w-5 nav-bold hidden"
+                                alt="Course icon">
+                            <!-- <img src="./assets/images/c" class="navlink-img" alt="Course icon"> -->
+                            <span class="navlink-title px-2">My Courses</span>
+                        </a>
+                    </li>
+                    <li class="nav-li px-8 my-8 text-white text-opacity-80 hover:text-opacity-100">
+                        <a href="../rewards/index.html" class="navlinks flex items-center">
+                            <img src="../assets/images/Haruki Icons.png" class="navlink-img w-5 nav-light"
+                                alt="Reward icon">
+                            <img src="../assets/images/rewards b.png" class="navlink-img w-5 nav-bold hidden"
+                                alt="Reward icon">
+                            <span class="navlink-title px-2">Rewards</span>
+                        </a>
+                    </li>
+                    <li class="nav-li px-8 my-8 text-white text-opacity-80 hover:text-opacity-100">
+                        <label class="navlinks flex items-center cursor-pointer" for="trans-dropcheck">
+                            <img src="../assets/images/Statistic.png" class="navlink-img w-5 nav-light"
+                                alt="Transaction icon">
+                            <img src="../assets/images/Statistic b.png" class="navlink-img w-5 nav-bold hidden"
+                                alt="Transaction icon">
+                            <span class="navlink-title px-2">Transaction</span>
+                            <button>
+                                <img src="../assets/images/arrow right.png" class="nav-light" alt="dropdown icon">
+                                <img src="../assets/images/arrow right (1).png" class="nav-bold hidden"
+                                    alt="dropdown icon">
+                            </button>
+                        </label>
+                        <input type="checkbox" id="trans-dropcheck" class="hidden trans-dropcheck">
+                        <ul class="ml-7 hidden trans-dropdown">
+                            <li class="trans-droplink text-gray-100 hover:text-white">
+                                <a href="../transaction/index.html"
+                                    class="text-white text-opacity-80 hover:text-opacity-100 mt-3.5">Transaction
+                                    History</a>
+                            </li>
+                            <li class="trans-droplink text-gray-100 hover:text-white">
+                                <a href="../withdrawals/index.html"
+                                    class="text-white text-opacity-80 hover:text-opacity-100 mt-3.5">Withdrawals</a>
+                            </li>
+                            <li class="trans-droplink text-gray-100 hover:text-white">
+                                <a href="../transfer funds/index.html"
+                                    class="text-white text-opacity-80 hover:text-opacity-100 mt-3.5">Transfer Funds</a>
+                            </li>
+                            <li class="trans-droplink text-gray-100 hover:text-white">
+                                <a href="../account/index.html"
+                                    class="text-white text-opacity-80 hover:text-opacity-100 mt-3.5">Add Account</a>
+                            </li>
+                            <li class="trans-droplink">
+                                <a href="../transactionpin/index.html"
+                                    class="text-white text-opacity-80 hover:text-opacity-100 mt-3.5">Set Transaction
+                                    Pin</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li
+                        class="nav-li px-8 my-8 text-white text-opacity-80 hover:text-opacity-100 text-white text-opacity-80 hover:text-opacity-100">
+                        <a href="../settings/index.html" class="navlinks flex items-center">
+                            <img src="../assets/images/settings icon.png" class="navlink-img nav-light w-5"
+                                alt="Settings icon">
+                            <img src="../assets/images/settings icon b.png" class="navlink-img nav-bold hidden w-5"
+                                alt="Settings icon">
+                            <span class="navlink-title px-2">Settings</span>
+                        </a>
+                    </li>
+                    <li
+                        class="nav-li px-8 my-8 text-white text-opacity-80 hover:text-opacity-100 text-white text-opacity-80 hover:text-opacity-100">
+                        <a href="" class="navlinks flex items-center">
+                            <img src="../assets/images/logout Icons.png" class="navlink-img w-5" alt="Logout icon">
+                            <span class="navlink-title px-2">Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <div class="w-full lg:w-9/12 xl:w-4/5 page-body">
+            <div class="w-full h-full py-10 px-8">
+                <nav>
+                    <div class="flex items-center justify-between lg:justify-end w-full">
+                        <div class="search-contain lg:hidden">
+                            <label for="nav-toggle">
+                                <img src="../assets/images/u_bars.png" class="w-6" alt="search icon">
+                            </label>
+                        </div>
+                        <div class="search-contain lg:hidden">
+                            <button>
+                                <img src="../assets/images/logo.png" class="w-32" alt="logo">
+                            </button>
+                        </div>
+                        <div class="search-contain">
+                            <button>
+                                <img src="../assets/images/search@2x.png" class="w-6" alt="search icon">
+                            </button>
+                        </div>
+                        <div class="notification-contain hidden lg:inline-block">
+                            <button>
+                                <img src="../assets/images/notification@2x.png" class="w-6 mx-4"
+                                    alt="notification bell">
+                            </button>
+                        </div>
+                        <div class="profile-contain hidden lg:inline-block">
+                            <a href="">
+                                <img src="../assets/images/avatar@2x.png" class="w-12" alt="profile image">
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+                <main id="main" class="py-4">
+                    <div>
+                        <div class="flex gap-3 items-center">
+                            <a href="../courses/index.html" class="back-link">
+                                <img src="../assets/images/Arrow 1 (Stroke).png" alt="back image">
+                            </a>
+                            <h2 class="page-title text-3xl md:text-xl font-bold" id="course-title">My Courses</h2>
+                        </div>
+                        <div class="main-body mt-4 flex gap-4">
+                            <div class="course-body w-2/3 flex-auto">
+                                <section>
+                                    <!-- <div
+                                        class="card mb-4 flex-none overflow-hidden flex justify-center text-white items-end w-full h-72 bg-secondary rounded-2xl">
+                                        <div class="card-body lesson-card-body relative w-full py-2">
+                                            <div class="vid-container">
+                                                <div class="video-container" id="video-container">
+                                                    <div class="playback-animation" id="playback-animation">
+                                                        <svg class="playback-icons">
+                                                            <use class="hidden" href="#play-icon"></use>
+                                                            <use href="#pause"></use>
+                                                        </svg>
+                                                    </div>
+
+                                                    <video controls class="video" id="video" preload="metadata"
+                                                        poster="../assets/images/Cover image.png">
+                                                        <source src="../assets/images/video.mp4" type="video/mp4">
+                                                        </source>
+                                                    </video>
+
+                                                    <div class="video-controls hidden" id="video-controls">
+                                                        <div class="video-progress">
+                                                            <progress id="progress-bar" value="0" min="0"></progress>
+                                                            <input class="seek" id="seek" value="0" min="0" type="range"
+                                                                step="1">
+                                                            <div class="seek-tooltip" id="seek-tooltip">00:00</div>
+                                                        </div>
+
+                                                        <div class="bottom-controls">
+                                                            <div class="left-controls">
+                                                                <button data-title="Play (k)" id="play">
+                                                                    <svg class="playback-icons">
+                                                                        <use href="#play-icon"></use>
+                                                                        <use class="hidden" href="#pause"></use>
+                                                                    </svg>
+                                                                </button>
+
+                                                                <div class="volume-controls">
+                                                                    <button data-title="Mute (m)" class="volume-button"
+                                                                        id="volume-button">
+                                                                        <svg>
+                                                                            <use class="hidden" href="#volume-mute">
+                                                                            </use>
+                                                                            <use class="hidden" href="#volume-low">
+                                                                            </use>
+                                                                            <use href="#volume-high"></use>
+                                                                        </svg>
+                                                                    </button>
+
+                                                                    <input class="volume" id="volume" value="1"
+                                                                        data-mute="0.5" type="range" max="1" min="0"
+                                                                        step="0.01">
+                                                                </div>
+
+                                                                <div class="time">
+                                                                    <time id="time-elapsed">00:00</time>
+                                                                    <span> / </span>
+                                                                    <time id="duration">00:00</time>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="right-controls">
+                                                                <button data-title="PIP (p)" class="pip-button"
+                                                                    id="pip-button">
+                                                                    <svg>
+                                                                        <use href="#pip"></use>
+                                                                    </svg>
+                                                                </button>
+                                                                <button data-title="Full screen (f)"
+                                                                    class="fullscreen-button" id="fullscreen-button">
+                                                                    <svg>
+                                                                        <use href="#fullscreen"></use>
+                                                                        <use href="#fullscreen-exit" class="hidden">
+                                                                        </use>
+                                                                    </svg>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <svg style="display: none">
+                                                <defs>
+                                                    <symbol id="pause" viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M14.016 5.016h3.984v13.969h-3.984v-13.969zM6 18.984v-13.969h3.984v13.969h-3.984z">
+                                                        </path>
+                                                    </symbol>
+
+                                                    <symbol id="play-icon" viewBox="0 0 24 24">
+                                                        <path d="M8.016 5.016l10.969 6.984-10.969 6.984v-13.969z">
+                                                        </path>
+                                                    </symbol>
+
+                                                    <symbol id="volume-high" viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M14.016 3.234q3.047 0.656 5.016 3.117t1.969 5.648-1.969 5.648-5.016 3.117v-2.063q2.203-0.656 3.586-2.484t1.383-4.219-1.383-4.219-3.586-2.484v-2.063zM16.5 12q0 2.813-2.484 4.031v-8.063q1.031 0.516 1.758 1.688t0.727 2.344zM3 9h3.984l5.016-5.016v16.031l-5.016-5.016h-3.984v-6z">
+                                                        </path>
+                                                    </symbol>
+
+                                                    <symbol id="volume-low" viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M5.016 9h3.984l5.016-5.016v16.031l-5.016-5.016h-3.984v-6zM18.516 12q0 2.766-2.531 4.031v-8.063q1.031 0.516 1.781 1.711t0.75 2.32z">
+                                                        </path>
+                                                    </symbol>
+
+                                                    <symbol id="volume-mute" viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M12 3.984v4.219l-2.109-2.109zM4.266 3l16.734 16.734-1.266 1.266-2.063-2.063q-1.547 1.313-3.656 1.828v-2.063q1.172-0.328 2.25-1.172l-4.266-4.266v6.75l-5.016-5.016h-3.984v-6h4.734l-4.734-4.734zM18.984 12q0-2.391-1.383-4.219t-3.586-2.484v-2.063q3.047 0.656 5.016 3.117t1.969 5.648q0 2.203-1.031 4.172l-1.5-1.547q0.516-1.266 0.516-2.625zM16.5 12q0 0.422-0.047 0.609l-2.438-2.438v-2.203q1.031 0.516 1.758 1.688t0.727 2.344z">
+                                                        </path>
+                                                    </symbol>
+
+                                                    <symbol id="fullscreen" viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M14.016 5.016h4.969v4.969h-1.969v-3h-3v-1.969zM17.016 17.016v-3h1.969v4.969h-4.969v-1.969h3zM5.016 9.984v-4.969h4.969v1.969h-3v3h-1.969zM6.984 14.016v3h3v1.969h-4.969v-4.969h1.969z">
+                                                        </path>
+                                                    </symbol>
+
+                                                    <symbol id="fullscreen-exit" viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M15.984 8.016h3v1.969h-4.969v-4.969h1.969v3zM14.016 18.984v-4.969h4.969v1.969h-3v3h-1.969zM8.016 8.016v-3h1.969v4.969h-4.969v-1.969h3zM5.016 15.984v-1.969h4.969v4.969h-1.969v-3h-3z">
+                                                        </path>
+                                                    </symbol>
+
+                                                    <symbol id="pip" viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M21 19.031v-14.063h-18v14.063h18zM23.016 18.984q0 0.797-0.609 1.406t-1.406 0.609h-18q-0.797 0-1.406-0.609t-0.609-1.406v-14.016q0-0.797 0.609-1.383t1.406-0.586h18q0.797 0 1.406 0.586t0.609 1.383v14.016zM18.984 11.016v6h-7.969v-6h7.969z">
+                                                        </path>
+                                                    </symbol>
+                                                </defs>
+                                            </svg>
+                                        </div>
+                                    </div> -->
+                                    <div
+                                        class="card flex-none flex justify-center text-white items-center w-full h-72 bg-secondary rounded-2xl">
+                                        <div class="card-body lesson-card-body relative p-2" id="lesson-card-body">
+                                        </div>
+                                    </div>
+                                    <div class="flex w-full items-center justify-between my-4">
+                                        <button class="flex items-center gap-1" id="prev-btn" disabled>
+                                            <img src="../assets/images/back.png" alt="previous image">
+                                            <span class="color-secondary">Previous</span>
+                                        </button>
+                                        <button class="flex items-center gap-1" id="next-btn">
+                                            <span class="color-secondary">Next</span>
+                                            <img src="../assets/images/next.png" alt="next image">
+                                        </button>
+                                    </div>
+                                </section>
+                                <section>
+                                    <div class="w-full">
+                                        <div class="tabs-container relative z-20 w-full">
+                                            <div class="flex w-full gap-5 relative items-center">
+                                                <label for="overview"
+                                                    class="tab h-full relative cursor-pointer border-b-2 border-transparent tab-active inline-block font-medium text-sm color-primary py-2">
+                                                    Overview
+                                                </label>
+                                                <label for="materials"
+                                                    class="tab h-full relative cursor-pointer border-b-2 border-transparent inline-block font-medium text-sm text-gray-600 py-2">
+                                                    Materials Needed
+                                                </label>
+                                                <label for="instructor"
+                                                    class="tab h-full relative cursor-pointer border-b-2 border-transparent inline-block font-medium text-sm text-gray-600 py-2">
+                                                    instructor
+                                                </label>
+                                                <label for="reviews"
+                                                    class="tab h-full relative cursor-pointer border-b-2 border-transparent inline-block font-medium text-sm text-gray-600 py-2">
+                                                    Reviews
+                                                </label>
+                                                <label for="faq"
+                                                    class="tab h-full relative cursor-pointer border-b-2 border-transparent inline-block font-medium text-sm text-gray-600 py-2">
+                                                    FAQ
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="tab-section-container">
+                                            <input type="radio" name="settings-tab" id="overview"
+                                                class="radio-tab hidden" checked>
+                                            <section class="tab-section w-full hidden py-10">
+                                                <div class="section-body">
+                                                    <div class="overview-header" id="overview-header">
+                                                        <div class="flex items-center gap-5">
+                                                            <div class="instructor-img-contain relative w-20 h-20 p-1">
+                                                                <img src="" alt="instructor image"
+                                                                    class="instructor-img">
+                                                            </div>
+                                                            <div class="details">
+                                                                <h3 class="section-title font-bold text-3xl text-dark"
+                                                                    id="section-title"></h3>
+                                                                <p class="instructor-name text-light"></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="overview-container" id="overview-container"></div>
+                                                </div>
+                                            </section>
+                                            <input type="radio" name="settings-tab" id="materials"
+                                                class="radio-tab hidden">
+                                            <section class="tab-section w-full hidden py-10">
+                                                <div class="">
+                                                    <h2 class="font-medium">
+                                                        Here are all the necessary materials needed for this course
+                                                    </h2>
+                                                </div>
+                                            </section>
+                                            <input type="radio" name="settings-tab" id="instructor"
+                                                class="radio-tab hidden">
+                                            <section class="tab-section w-full hidden py-10">
+                                                <div class="w-full sm:w-1/2">
+                                                    <div class="flex gap-5">
+                                                        <div class="instructor-img-contain relative w-20 h-20 p-1">
+                                                            <img src="" alt="instructor image" class="instructor-img">
+                                                        </div>
+                                                        <div class="details">
+                                                            <p class="instructor-name text-light"></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                            <input type="radio" name="settings-tab" id="reviews"
+                                                class="radio-tab hidden">
+                                            <section class="tab-section w-full hidden py-10">
+                                                <h2 class="font-medium">What other students have to say</h2>
+                                            </section>
+                                            <input type="radio" name="settings-tab" id="faq" class="radio-tab hidden">
+                                            <section class="tab-section w-full hidden py-10">
+                                                <h2 class="font-medium">Frequently Asked Questions</h2>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="course-headlines w-1/3 flex-auto">
+                                <div class="px-2">
+                                    <h2 class="w-full text-lg font-medium border-b-2 border-secondary leading-loose">
+                                        Lessons
+                                    </h2>
+                                </div>
+                                <div class="">
+                                    <div class="">
+                                        <ul class="lessons-container" id="lessons-container">
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
