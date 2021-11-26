@@ -52,7 +52,7 @@ select {
     color: var(--tertiary-color);
 }
 .color-dark {
-    color: var(--dark-color);
+    color: var(--text-dark);
 }
 .bg-primary {
     background-color: var(--primary-color);

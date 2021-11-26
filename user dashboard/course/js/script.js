@@ -3,16 +3,42 @@
 // const courseContent = document.querySelector('#course-content');
 const tabs = document.querySelectorAll('.tab');
 const radioTabs = document.querySelectorAll('.radio-tab');
-const overviewContainer = document.querySelector('#overview-container');
+const overviewContainers = document.querySelectorAll('.overview-container');
 const prevBtn = document.querySelector('#prev-btn');
 const nextBtn = document.querySelector('#next-btn');
 const lessonCardBody = document.querySelector('#lesson-card-body');
 const lessonContainer = document.querySelector('#lessons-container');
+const lessonContainerMd = document.querySelector('#lessons-container-md');
 const courseTitle = document.querySelector('#course-title');
 const sectionTitle = document.querySelector('#section-title');
 const instructorImage = document.querySelectorAll('.instructor-img');
 const instructorName = document.querySelectorAll('.instructor-name');
+const video = document.querySelector('#video');
+const videoControls = document.querySelector('#video-controls-container');
+const progressBar = document.querySelector('#progress-bar');
+const seek = document.querySelector('#seek');
+const seekTooltip = document.querySelector('#seek-tooltip');
+const playBtn = document.querySelector('#play-btn');
+const pauseBtn = document.querySelector('#pause-btn');;
+const timeElapsed = document.querySelector('#time-elapsed');
+const duration = document.querySelector('#duration');
+const backwardBtn = document.querySelector('#backward-btn');
+const selectSpeed = document.querySelector('#select-speed');
+const forwardBtn = document.querySelector('#forward-btn');
+const bookmarkBtn = document.querySelector('#bookmark-btn');
+const muteBtn = document.querySelector('#mute-btn');
+const videoSettingBtn = document.querySelector('#video-setting-btn');
+const fullsizeBtn = document.querySelector('#fullsize-btn');
+const videoWidthBtn = document.querySelector('#video-width-btn');
+// const Btn = document.querySelector('#-btn');
 
+
+
+
+//   <img src="../assets/images/paper.png" class="w-5" alt="">
+//   <select class="bg-white select-speed inline-block border-0 rounded-md px-1 text-sm font-medium color-dark" id="select-speed">
+//       <option value="cc" class="text-tertiary">cc</option>
+//   </select>
 
 
 // // Select elements here
@@ -325,10 +351,10 @@ let lessonNo = 0;
 let sectionNo = 0;
 
 let windowURL = window.location.href;
-console.log(windowURL);
+// console.log(windowURL);
 
 let paramString = windowURL.split('#')[1];
-console.log(paramString);
+// console.log(paramString);
 
 let courseId = paramString;
 
@@ -513,64 +539,154 @@ let courses = [
                 ]
             }
         ]
-    },
-    {
-        courseId: 2,
-        courseCartegory: `UI/UX Design`,
-        courseSubCartegory: `Sketch`,
-        courseTitle: `Sketch from A to Z (2019): Become an app designer`,
-        courseImage: `../assets/images/skech@2x.png`,
-        courseDesc: `Finally a comprehensive guide to using Sketch for designing mobile. Learn to design an app from A ...`,
-        courseColor: `yellow`,
-        courseProgress: 65,
-    },
-    {
-        courseId: 3,
-        courseCartegory: `Backend Development`,
-        courseSubCartegory: `Laravel`,
-        courseTitle: `Laravel 2018, complete guide with real world projects`,
-        courseImage: `../assets/images/laravel@2x.png`,
-        courseDesc: `Build a RESTFUL API for a market system using Laravel and dominates the challengng RESTFUL ...`,
-        courseColor: `indigo`,
-        courseProgress: 80,
-    },
-    {
-        courseId: 4,
-        courseCartegory: `UI/UX Design`,
-        courseSubCartegory: `Sketch`,
-        courseTitle: `Sketch from A to Z (2019): Become an app designer`,
-        courseImage: `../assets/images/skech@2x.png`,
-        courseDesc: `Finally a comprehensive guide to using Sketch for designing mobile. Learn to design an app from A ...`,
-        courseColor: `yellow`,
-        courseProgress: 65,
-    },
-    {
-        courseId: 5,
-        courseCartegory: `Frontend Development`,
-        courseSubCartegory: `Angular`,
-        courseTitle: `Learn angular.js from scratch to experts`,
-        courseImage: `../assets/images/angular@2x.png`,
-        courseDesc: `Master Angular Js from the basics to building an advanced appication with Firebase's Firestore as ...`,
-        courseColor: `red`,
-        courseProgress: 35,
-        lessons: [
-            {
-                title: '',
-                duration: '',
-                quantity: 1,
-                subLessons: [
-                    {
-                        title: '',
-                        type: '',
-                        duration: '',
-                        quantity: 1,
-                        done: false
-                    }
-                ]
-            }
-        ]
     }
 ];
+
+
+const videoWorks = !!document.createElement('video').canPlayType;
+// if (videoWorks) {
+//   video.controls = false;
+//   videoControls.classList.remove('hidden');
+//   initializeVideo();
+// }
+
+// // Add functions here
+
+// togglePlay toggles the playback state of the video.
+// If the video playback is paused or ended, the video is played
+// otherwise, the video is paused
+// function togglePlay() {
+//   if (video.paused || video.ended) {
+//     video.play();
+//   } else {
+//     video.pause();
+//   }
+// }
+
+// updatePlayButton updates the playback icon and tooltip
+// depending on the playback state
+function updatePlayButton() {
+  playbackIcons.forEach((icon) => icon.classList.toggle('hidden'));
+
+  if (video.paused) {
+    playButton.setAttribute('data-title', 'Play (k)');
+  } else {
+    playButton.setAttribute('data-title', 'Pause (k)');
+  }
+}
+
+// formatTime takes a time length in seconds and returns the time in
+// minutes and seconds
+function formatTime(timeInSeconds) {
+  const result = new Date(timeInSeconds * 1000).toISOString().substr(11, 8);
+
+  return {
+    minutes: result.substr(3, 2),
+    seconds: result.substr(6, 2),
+  };
+}
+
+
+// initializeVideo sets the video duration, and maximum value of the
+// progressBar
+function initializeVideo() {
+  const videoDuration = Math.round(video.duration);
+  console.log(videoDuration);
+  seek.setAttribute('max', videoDuration);
+  progressBar.setAttribute('max', videoDuration);
+  const time = formatTime(videoDuration);
+  duration.innerText = `${time.minutes}:${time.seconds}`;
+  duration.setAttribute('datetime', `${time.minutes}m ${time.seconds}s`);
+}
+
+function updateTimeElapsed() {
+  const time = formatTime(Math.round(video.currentTime));
+  timeElapsed.innerText = `${time.minutes}:${time.seconds}`;
+  timeElapsed.setAttribute('datetime', `${time.minutes}m ${time.seconds}s`);
+}
+
+// updateTimeElapsed indicates how far through the video
+// the current playback is by updating the timeElapsed element
+function updateTimeElapsed() {
+  const time = formatTime(Math.round(video.currentTime));
+  timeElapsed.innerText = `${time.minutes}:${time.seconds}`;
+  timeElapsed.setAttribute('datetime', `${time.minutes}m ${time.seconds}s`);
+}
+
+// updateProgress indicates how far through the video
+// the current playback is by updating the progress bar
+function updateProgress() {
+  seek.value = Math.floor(video.currentTime);
+  progressBar.value = Math.floor(video.currentTime);
+}
+
+// updateSeekTooltip uses the position of the mouse on the progress bar to
+// roughly work out what point in the video the user will skip to if
+// the progress bar is clicked at that point
+function updateSeekTooltip(event) {
+    // console.log(event.offsetX);
+    // console.log(event.target.clientWidth);
+    console.log(parseInt(event.target.getAttribute('max'), 10));
+    console.log(parseInt(event.target.getAttribute('max')));
+  const skipTo = Math.round(
+    (event.offsetX / event.target.clientWidth) *
+            parseInt(event.target.getAttribute('max'), 10)
+  );
+  seek.setAttribute('data-seek', skipTo);
+  const t = formatTime(skipTo);
+  seekTooltip.textContent = `${t.minutes}:${t.seconds}`;
+  const rect = video.getBoundingClientRect();
+  seekTooltip.style.left = `${event.pageX - rect.left}px`;
+}
+
+const playFunc = () => {
+    console.log('play');
+    if (video.paused || video.ended) {
+      video.play();
+    } else {
+      video.pause();
+    }
+}
+
+// const pauseFunc = () => {
+//     console.log('pause');
+// }
+
+const backwardFunc = () => {
+    console.log('backward');
+}
+const forwardFunc = () => {
+    console.log('forward');
+}
+
+const speedFunc = () => {
+    console.log('speed');
+}
+
+const bookmarkFunc = () => {
+    console.log('bookmark');
+}
+
+const muteFunc = () => {
+    console.log('mute');
+}
+
+const videoSettingFunc = () => {
+    console.log('videoSetting');
+}
+
+const fullsizeFunc = () => {
+    console.log('fullsize');
+}
+const videoWidthFunc = () => {
+    console.log('videoWidth');
+}
+
+// const playFunc = () => {
+//     console.log('play');
+// }
+
+
 
 
 const overviewMain = () => {
@@ -590,7 +706,9 @@ const overviewMain = () => {
                 overviewBody = `
                     <p class="font-medium my-3 text-light text-md">${sBody}</p>
                 `;
-                overviewContainer.innerHTML += overviewBody;
+                overviewContainers.forEach(overviewContainer => {
+                    overviewContainer.innerHTML += overviewBody;
+                });
             });
             lessonCardBody.innerHTML = `
             <div class="flex items-center justify-center gap-10">
@@ -601,7 +719,7 @@ const overviewMain = () => {
                         ${course.lessons[lessonNo].sections[sectionNo].title}
                     </p>
                     <a href="" class="flex text-white font-medium text-lg justify-start px-5 gap-5" download>
-                        <img src="../assets/images/pdf icon.png" class="w-6" alt="download">
+                        <img src="../assets/images/Download Icon.png" class="w-6" alt="download">
                         <span>Download</span>
                     </a>
                 </div>
@@ -654,7 +772,7 @@ const overviewMain = () => {
 let allLessonCheckBoxes;
 let allSubLessonCheckBoxes;
 let allSubLessonsLink;
-const lessonMain = () => {
+const lessonMain = (lessonContainerLayout) => {
     courses.forEach(course => {
         let lessonBody;
         if (course.courseId == courseId) {
@@ -678,7 +796,7 @@ const lessonMain = () => {
                                 id="lesson-checkbox-${lesson.section}-${subLesson.subLesson}" ${isDone}>
                             <span for="lesson-checkbox-${lesson.section}-${subLesson.subLesson}"
                                 class="lesson-check border rounded-md flex items-center justify-center w-5 h-5 p-0">
-                                <img src="../assets/images/Checkmark.png" class="w-2.5"
+                                <img src="../assets/images/check.png" class="w-2.5"
                                     alt="check">
                             </span>
                             <div for="lesson-checkbox-${lesson.section}-${subLesson.subLesson}"
@@ -727,7 +845,7 @@ const lessonMain = () => {
                                 </div>
                             </div>
                         </label>
-                        <input type="radio" name="view-sections" class="view-sections-checkbox hidden"
+                        <input type="checkbox" name="view-sections" class="view-sections-checkbox hidden"
                             id="view-sections-checkbox${lesson.section}">
                         <ul class="sub-lessons-container ml-4 hidden">
                             ${allSubLessons}
@@ -735,10 +853,10 @@ const lessonMain = () => {
                     </div>
                 </li>
                 `;
-                lessonContainer.innerHTML += lessonBody;
-                allLessonCheckBoxes = lessonContainer.querySelectorAll('.view-sections-checkbox');
-                allSubLessonCheckBoxes = lessonContainer.querySelectorAll('.lesson-checkbox');
-                allSubLessonsLink = lessonContainer.querySelectorAll('.sub-lessons-link');
+                lessonContainerLayout.innerHTML += lessonBody;
+                allLessonCheckBoxes = lessonContainerLayout.querySelectorAll('.view-sections-checkbox');
+                allSubLessonCheckBoxes = lessonContainerLayout.querySelectorAll('.lesson-checkbox');
+                allSubLessonsLink = lessonContainerLayout.querySelectorAll('.sub-lessons-link');
                 allSubLessonsLink.forEach(link => {
                     link.addEventListener('click', (e) => {
                         e.preventDefault();
@@ -795,12 +913,23 @@ const lessonMain = () => {
 
 
 overviewMain();
-lessonMain();
+
+const checkScreenSize = () => {
+    // console.log(screen.width);
+    console.log(window.innerWidth);
+    if (window.innerWidth < 768) {
+        lessonMain(lessonContainer);
+    } else {
+        lessonMain(lessonContainerMd);
+    }
+}
+
+window.addEventListener('load', checkScreenSize);
+// window.addEventListener('resize', checkScreenSize);
 
 radioTabs.forEach(radioTab => {
     radioTab.addEventListener('change', () => {
         tabs.forEach(tab => {
-            // console.log(tab)'
             tab.classList.remove('tab-active')
             if (radioTab.id === tab.htmlFor && radioTab.checked === true) {
                 tab.classList.add('tab-active')
@@ -810,3 +939,37 @@ radioTabs.forEach(radioTab => {
     })
 });
 
+
+
+// playBtn.addEventListener('click', playFunc);
+// // pauseBtn.addEventListener('click', pauseFunc);
+// backwardBtn.addEventListener('click', backwardFunc);
+// forwardBtn.addEventListener('click', forwardFunc);
+// selectSpeed.addEventListener('click', speedFunc);
+// bookmarkBtn.addEventListener('click', bookmarkFunc);
+// muteBtn.addEventListener('click', muteFunc);
+// videoSettingBtn.addEventListener('click', videoSettingFunc);
+// fullsizeBtn.addEventListener('click', fullsizeFunc);
+// videoWidthBtn.addEventListener('click', videoWidthFunc);
+// video.addEventListener('timeupdate', updateTimeElapsed);
+// video.addEventListener('timeupdate', updateProgress);
+
+// // video.addEventListener('play', updatePlayButton);
+// // video.addEventListener('pause', updatePlayButton);
+// // video.addEventListener('volumechange', updateVolumeIcon);
+// // video.addEventListener('loadedmetadata', initializeVideo);
+// // video.addEventListener('click', togglePlay);
+// // video.addEventListener('click', animatePlayback);
+// // video.addEventListener('mouseenter', showControls);
+// // video.addEventListener('mouseleave', hideControls);
+// // videoControls.addEventListener('mouseenter', showControls);
+// // videoControls.addEventListener('mouseleave', hideControls);
+// // seek.addEventListener('mousemove', updateSeekTooltip);
+// // seek.addEventListener('input', skipAhead);
+// // volume.addEventListener('input', updateVolume);
+// // volumeButton.addEventListener('click', toggleMute);
+// // fullscreenButton.addEventListener('click', toggleFullScreen);
+// // videoContainer.addEventListener('fullscreenchange', updateFullscreenButton);
+// // .addEventListener('click', );
+// // const timeElapsed = document.querySelector('#time-elapsed');
+// // const duration = document.querySelector('#duration');
