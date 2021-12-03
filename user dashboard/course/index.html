@@ -188,144 +188,175 @@
                             <div class="course-body w-2/3 flex-auto">
                                 <section>
                                     <div
-                                        class="card flex-none flex justify-center text-white items-center w-full h-72 bg-secondary rounded-2xl">
-                                        <div class="card-body lesson-card-body relative p-2" id="lesson-card-body">
+                                        class="card overflow-hidden flex-none flex justify-center text-white items-center w-full h-72 bg-secondary rounded-2xl">
+                                        <div class="card-body lesson-card-body w-full h-full relative" id="lesson-card-body">
                                         </div>
                                     </div>
                                     <div
                                         class="card overflow-hidden hidden flex-none flex justify-center text-white items-center w-full h-72 bg-secondary rounded-2xl">
                                         <div class="card-body w-full h-full lesson-card-body relative">
-                                            <div class="video-container w-full h-full relative">
+                                            <div class="video-container flex flex-column items-center w-full h-full relative">
                                                 <div class="video-body w-full h-full relative">
-                                                    <video controls class="video w-full h-full" id="video" preload="metadata"
-                                                        poster="../assets/images/Cover image.png">
+                                                    <video controls class="video w-full h-full" id="video"
+                                                    preload="metadata">
+                                                    <!-- preload="metadata" poster="../assets/images/Cover image.png"> -->
                                                         <source src="../assets/images/video.mp4" type="video/mp4">
                                                         </source>
                                                     </video>
                                                 </div>
-                                                <div
-                                                    class="video-controls-container hidden absolute top-0 left-0 w-full h-full" id="video-controls-container">
-                                                    <div
-                                                    class="video-controls">
-                                                    <div class="relative">
-                                                        <div class="video-progress">
-                                                            <progress id="progress-bar" value="0" min="0"></progress>
-                                                            <input class="seek" id="seek" value="0" min="0" type="range"
-                                                                step="1">
-                                                            <div class="seek-tooltip" id="seek-tooltip">00:00</div>
-                                                        </div>
+                                                <div class="video-controls-container hidden bg-black bg-opacity-20 absolute top-0 left-0 w-full h-full"
+                                                    id="video-controls-container">
+                                                    <div class="video-overlay absolute top-0 right-0 left-0 bottom-0">
+                                                        <button id="big-play-btn"
+                                                            class="btn w-14 absolute z-20 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                                            <img src="../assets/images/play icon.png" alt="">
+                                                        </button>
                                                     </div>
                                                     <div
-                                                    class="items-end flex justify-between">
-                                                        <div class="flex items-center controls-left">
-                                                            <div class="play-control">
-                                                                <button class="btn" id="play-btn" data-title="Play (k)">
-                                                                    <div class="play">
-                                                                        <img src="../assets/images/videoactive-sm.png"
-                                                                            class="w-5" alt="">
-                                                                    </div>
-                                                                    <div class="pause hidden">
-                                                                        <img src="../assets/images/play.png" class="w-5"
-                                                                            alt="">
-                                                                    </div>
-                                                                </button>
-                                                                <!-- <button class="btn hidden" data-title="Pause (k)" id="pause-btn">
+                                                        class="course-info absolute text-white top-0 right-0 w-1/2 px-8 py-8">
+                                                        <div class="">
+                                                            <div
+                                                                class="course-icon mb-4 w-10 h-10 bg-white rounded-full p-2">
+                                                                <img src="../assets/images/skech@2x.png" alt="">
+                                                            </div>
+                                                            <p class="font-normal my-1 text-2xl">
+                                                                Product Designer For Beginners
+                                                            </p>
+                                                            <div
+                                                                class="instructor-tag-container rounded-sm overflow-hidden">
+                                                                <div
+                                                                    class="instructor-tag-box bg-blue-300 pl-6 py-1.5 rounded-bl-full">
+                                                                    <p class="text-base">Ogoluwa Ojewale</p>
+                                                                    <p class="text-xs font-light text-capitalize">Senior
+                                                                        Product designer</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="video-controls bg-black bg-opacity-10 flex flex-col right-0 left-0 absolute bottom-0">
+                                                        <div class="relative">
+                                                            <div class="video-progress relative">
+                                                                <progress class="w-full absolute top-0" id="progress-bar" value="0"
+                                                                    min="0"></progress>
+                                                                    <!-- <input class="seek" id="seek" value="0" min="0" -->
+                                                                <input class="seek cursor-pointer w-full absolute top-0 m-0" id="seek" value="0" min="0"
+                                                                    type="range" step="1">
+                                                                <!-- <div class="seek-tooltip" id="seek-tooltip">00:00</div> -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="items-end flex justify-between pt-1 pb-2 px-2.5">
+                                                            <div class="flex items-center gap-1 controls-left">
+                                                                <div class="play-control">
+                                                                    <button class="btn block" id="play-btn"
+                                                                        data-title="Play (k)">
+                                                                        <div class="play">
+                                                                            <img src="../assets/images/videoactive-sm.png"
+                                                                                class="w-4" alt="">
+                                                                        </div>
+                                                                        <div class="pause hidden">
+                                                                            <img src="../assets/images/play.png"
+                                                                                class="w-4" alt="">
+                                                                        </div>
+                                                                    </button>
+                                                                    <!-- <button class="btn hidden" data-title="Pause (k)" id="pause-btn">
                                                                 <img src="../assets/images/play.png" class="w-5" alt="">
                                                             </button> -->
+                                                                </div>
+                                                                <div class="backward-control">
+                                                                    <button class="btn block" id="backward-btn"
+                                                                        data-title="-10 seconds">
+                                                                        <img src="../assets/images/move-left.png"
+                                                                            class="w-5" alt="">
+                                                                    </button>
+                                                                </div>
+                                                                <div class="speed-control">
+                                                                    <!-- <button class="btn"> -->
+                                                                    <select
+                                                                        class="bg-white select-speed border-0 inline-block rounded-md px-1 text-sm font-medium color-dark"
+                                                                        id="select-speed">
+                                                                        <option value="0.25" class="text-tertiary">0.25x
+                                                                        </option>
+                                                                        <option value="0.50" class="text-tertiary">0.50x
+                                                                        </option>
+                                                                        <option value="0.75" class="text-tertiary">0.75x
+                                                                        </option>
+                                                                        <option value="1.00" class="text-tertiary">1.00x
+                                                                        </option>
+                                                                        <option value="1.25" class="text-tertiary">1.25x
+                                                                        </option>
+                                                                        <option value="1.50" class="text-tertiary">1.50x
+                                                                        </option>
+                                                                        <option value="1.75" class="text-tertiary">1.75x
+                                                                        </option>
+                                                                        <option value="2.00" class="text-tertiary">2.00x
+                                                                        </option>
+                                                                    </select>
+                                                                    <!-- </button> -->
+                                                                </div>
+                                                                <div class="forward-control" id="forward-btn"
+                                                                    data-title="+10">
+                                                                    <button class="btn block">
+                                                                        <img src="../assets/images/move-right.png"
+                                                                            class="w-5" alt="">
+                                                                    </button>
+                                                                </div>
+                                                                <div class="time tracking-wider text-xs font-light">
+                                                                    <time id="time-elapsed">00 : 00</time>
+                                                                    <span> / </span>
+                                                                    <time id="duration">00 : 00</time>
+                                                                </div>
+                                                                <div class="bookmark-control">
+                                                                    <button class="btn block" id="bookmark-btn">
+                                                                        <img src="../assets/images/bookmark.png"
+                                                                            class="w-5" alt="">
+                                                                    </button>
+                                                                </div>
                                                             </div>
-                                                            <div class="backward-control">
-                                                                <button class="btn" id="backward-btn"
-                                                                    data-title="-10 seconds">
-                                                                    <img src="../assets/images/move-left.png"
-                                                                        class="w-5" alt="">
-                                                                </button>
-                                                            </div>
-                                                            <div class="speed-control">
-                                                                <!-- <button class="btn"> -->
-                                                                <select
-                                                                    class="bg-white select-speed border-0 inline-block rounded-md px-1 text-sm font-medium color-dark"
-                                                                    id="select-speed">
-                                                                    <option value="0.25" class="text-tertiary">0.25x
-                                                                    </option>
-                                                                    <option value="0.50" class="text-tertiary">0.50x
-                                                                    </option>
-                                                                    <option value="0.75" class="text-tertiary">0.75x
-                                                                    </option>
-                                                                    <option value="1.00" class="text-tertiary">1.00x
-                                                                    </option>
-                                                                    <option value="1.25" class="text-tertiary">1.25x
-                                                                    </option>
-                                                                    <option value="1.50" class="text-tertiary">1.50x
-                                                                    </option>
-                                                                    <option value="1.75" class="text-tertiary">1.75x
-                                                                    </option>
-                                                                    <option value="2.00" class="text-tertiary">2.00x
-                                                                    </option>
-                                                                </select>
-                                                                <!-- </button> -->
-                                                            </div>
-                                                            <div class="forward-control" id="forward-btn"
-                                                                data-title="+10">
-                                                                <button class="btn">
-                                                                    <img src="../assets/images/move-right.png"
-                                                                        class="w-5" alt="">
-                                                                </button>
-                                                            </div>
-                                                            <div class="time tracking-wider text-xs font-light">
-                                                                <time id="time-elapsed">00 : 00</time>
-                                                                <span> / </span>
-                                                                <time id="duration">00 : 00</time>
-                                                            </div>
-                                                            <div class="bookmark-control">
-                                                                <button class="btn" id="bookmark-btn">
-                                                                    <img src="../assets/images/bookmark.png" class="w-5"
-                                                                        alt="">
-                                                                </button>
+                                                            <div class="flex items-center gap-1 controls-right">
+                                                                <div class="play-control">
+                                                                    <button class="btn block" id="mute-btn"
+                                                                        data-title="Play (k)">
+                                                                        <img src="../assets/images/volume.png"
+                                                                            class="w-5" alt="">
+                                                                    </button>
+                                                                </div>
+                                                                <div class="play-control">
+                                                                    <button class="btn block" data-title="Play (k)">
+                                                                        <img src="../assets/images/paper.png"
+                                                                            class="w-5" alt="">
+                                                                    </button>
+                                                                </div>
+                                                                <div class="speed-control">
+                                                                    <!-- <button class="btn"> -->
+                                                                    <select
+                                                                        class="bg-white select-speed inline-block border-0 rounded-md px-1 text-sm font-medium color-dark"
+                                                                        id="select-speed">
+                                                                        <option value="cc" class="text-tertiary">cc
+                                                                        </option>
+                                                                    </select>
+                                                                    <!-- </button> -->
+                                                                </div>
+                                                                <div class="setting-control">
+                                                                    <button class="btn block" id="video-setting-btn">
+                                                                        <img src="../assets/images/setting.png"
+                                                                            class="w-5" alt="">
+                                                                    </button>
+                                                                </div>
+                                                                <div class="fullsize-control">
+                                                                    <button class="btn block" id="fullsize-btn"
+                                                                        data-title="-10 seconds">
+                                                                        <img src="../assets/images/fullsize.png"
+                                                                            class="w-5" alt="">
+                                                                    </button>
+                                                                </div>
+                                                                <div class="width-control">
+                                                                    <button class="btn block" id="video-width-btn">
+                                                                        <img src="../assets/images/width.png"
+                                                                            class="w-5" alt="">
+                                                                    </button>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <div class="flex items-center controls-right">
-                                                            <div class="play-control">
-                                                                <button class="btn" id="mute-btn" data-title="Play (k)">
-                                                                    <img src="../assets/images/volume.png" class="w-5"
-                                                                        alt="">
-                                                                </button>
-                                                            </div>
-                                                            <div class="play-control">
-                                                                <button class="btn" data-title="Play (k)">
-                                                                    <img src="../assets/images/paper.png" class="w-5"
-                                                                        alt="">
-                                                                </button>
-                                                            </div>
-                                                            <div class="speed-control">
-                                                                <!-- <button class="btn"> -->
-                                                                <select
-                                                                    class="bg-white select-speed inline-block border-0 rounded-md px-1 text-sm font-medium color-dark"
-                                                                    id="select-speed">
-                                                                    <option value="cc" class="text-tertiary">cc</option>
-                                                                </select>
-                                                                <!-- </button> -->
-                                                            </div>
-                                                            <div class="setting-control">
-                                                                <button class="btn" id="video-setting-btn">
-                                                                    <img src="../assets/images/setting.png" class="w-5"
-                                                                        alt="">
-                                                                </button>
-                                                            </div>
-                                                            <div class="fullsize-control">
-                                                                <button class="btn" id="fullsize-btn"
-                                                                    data-title="-10 seconds">
-                                                                    <img src="../assets/images/fullsize.png" class="w-5"
-                                                                        alt="">
-                                                                </button>
-                                                            </div>
-                                                            <div class="width-control">
-                                                                <button class="btn" id="video-width-btn">
-                                                                    <img src="../assets/images/width.png" class="w-5"
-                                                                        alt="">
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
                                                     </div>
                                                 </div>
                                             </div>

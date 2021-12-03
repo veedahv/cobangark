@@ -1,6 +1,3 @@
-// const main = document.querySelector('#main');
-// const coursesMain = document.querySelector('#courses-main');
-// const courseContent = document.querySelector('#course-content');
 const tabs = document.querySelectorAll('.tab');
 const radioTabs = document.querySelectorAll('.radio-tab');
 const overviewContainers = document.querySelectorAll('.overview-container');
@@ -13,32 +10,6 @@ const courseTitle = document.querySelector('#course-title');
 const sectionTitle = document.querySelector('#section-title');
 const instructorImage = document.querySelectorAll('.instructor-img');
 const instructorName = document.querySelectorAll('.instructor-name');
-const video = document.querySelector('#video');
-const videoControls = document.querySelector('#video-controls-container');
-const progressBar = document.querySelector('#progress-bar');
-const seek = document.querySelector('#seek');
-const seekTooltip = document.querySelector('#seek-tooltip');
-const playBtn = document.querySelector('#play-btn');
-const pauseBtn = document.querySelector('#pause-btn');;
-const timeElapsed = document.querySelector('#time-elapsed');
-const duration = document.querySelector('#duration');
-const backwardBtn = document.querySelector('#backward-btn');
-const selectSpeed = document.querySelector('#select-speed');
-const forwardBtn = document.querySelector('#forward-btn');
-const bookmarkBtn = document.querySelector('#bookmark-btn');
-const muteBtn = document.querySelector('#mute-btn');
-const videoSettingBtn = document.querySelector('#video-setting-btn');
-const fullsizeBtn = document.querySelector('#fullsize-btn');
-const videoWidthBtn = document.querySelector('#video-width-btn');
-// const Btn = document.querySelector('#-btn');
-
-
-
-
-//   <img src="../assets/images/paper.png" class="w-5" alt="">
-//   <select class="bg-white select-speed inline-block border-0 rounded-md px-1 text-sm font-medium color-dark" id="select-speed">
-//       <option value="cc" class="text-tertiary">cc</option>
-//   </select>
 
 
 // // Select elements here
@@ -543,155 +514,276 @@ let courses = [
 ];
 
 
-const videoWorks = !!document.createElement('video').canPlayType;
-// if (videoWorks) {
-//   video.controls = false;
-//   videoControls.classList.remove('hidden');
-//   initializeVideo();
-// }
+const videoFunc = async () => {
+    // const videoFunc = () => {
+    const video = lessonCardBody.querySelector('#video');
+    const videoContainer = lessonCardBody.querySelector('.video-container');
+    const videoControls = lessonCardBody.querySelector('#video-controls-container');
+    const progressBar = lessonCardBody.querySelector('#progress-bar');
+    const seek = lessonCardBody.querySelector('#seek');
+    const seekTooltip = lessonCardBody.querySelector('#seek-tooltip');
+    const playBtn = lessonCardBody.querySelector('#play-btn');
+    const bigPlayBtn = lessonCardBody.querySelector('#big-play-btn');
+    // const pauseBtn = lessonCardBody.querySelector('#pause-btn');
+    const timeElapsed = lessonCardBody.querySelector('#time-elapsed');
+    const duration = lessonCardBody.querySelector('#duration');
+    const backwardBtn = lessonCardBody.querySelector('#backward-btn');
+    const selectSpeed = lessonCardBody.querySelector('#select-speed');
+    const forwardBtn = lessonCardBody.querySelector('#forward-btn');
+    const bookmarkBtn = lessonCardBody.querySelector('#bookmark-btn');
+    const muteBtn = lessonCardBody.querySelector('#mute-btn');
+    const videoSettingBtn = lessonCardBody.querySelector('#video-setting-btn');
+    const fullsizeBtn = lessonCardBody.querySelector('#fullsize-btn');
+    const videoWidthBtn = lessonCardBody.querySelector('#video-width-btn');
 
-// // Add functions here
+    video.addEventListener('loadeddata', function () {
+        console.log(playBtn);
+        console.log(bigPlayBtn);
+        // Video is loaded and can be played
 
-// togglePlay toggles the playback state of the video.
-// If the video playback is paused or ended, the video is played
-// otherwise, the video is paused
-// function togglePlay() {
-//   if (video.paused || video.ended) {
-//     video.play();
-//   } else {
-//     video.pause();
-//   }
-// }
+        const videoWorks = !!document.createElement('video').canPlayType;
+        if (videoWorks) {
+            video.controls = false;
+            videoControls.classList.remove('hidden');
+            initializeVideo();
+        }
 
-// updatePlayButton updates the playback icon and tooltip
-// depending on the playback state
-function updatePlayButton() {
-  playbackIcons.forEach((icon) => icon.classList.toggle('hidden'));
+        // // Add functions here
 
-  if (video.paused) {
-    playButton.setAttribute('data-title', 'Play (k)');
-  } else {
-    playButton.setAttribute('data-title', 'Pause (k)');
-  }
+        // togglePlay toggles the playback state of the video.
+        // If the video playback is paused or ended, the video is played
+        // otherwise, the video is paused
+        function togglePlay() {
+            if (video.paused || video.ended) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        }
+        function videoPlayFunc() {
+                video.play();
+                bigPlayBtn.classList.add('hidden');
+        }
+
+        // updatePlayButton updates the playback icon and tooltip
+        // depending on the playback state
+        function updatePlayButton() {
+            playbackIcons.forEach((icon) => icon.classList.toggle('hidden'));
+            if (video.paused) {
+                playButton.setAttribute('data-title', 'Play (k)');
+            } else {
+                playButton.setAttribute('data-title', 'Pause (k)');
+            }
+        }
+
+        // formatTime takes a time length in seconds and returns the time in
+        // minutes and seconds
+        function formatTime(timeInSeconds) {
+            const result = new Date(timeInSeconds * 1000).toISOString().substr(11, 8);
+
+            return {
+                minutes: result.substr(3, 2),
+                seconds: result.substr(6, 2),
+            };
+        }
+
+
+        // initializeVideo sets the video duration, and maximum value of the
+        // progressBar
+        function initializeVideo() {
+            // console.log(video);
+            // console.log(video.duration);
+            const videoDuration = Math.round(video.duration);
+            // console.log(videoDuration);
+            seek.setAttribute('max', videoDuration);
+            progressBar.setAttribute('max', videoDuration);
+            const time = formatTime(videoDuration);
+            duration.innerText = `${time.minutes}:${time.seconds}`;
+            duration.setAttribute('datetime', `${time.minutes}m ${time.seconds}s`);
+        }
+
+        function updateTimeElapsed() {
+            const time = formatTime(Math.round(video.currentTime));
+            timeElapsed.innerText = `${time.minutes}:${time.seconds}`;
+            timeElapsed.setAttribute('datetime', `${time.minutes}m ${time.seconds}s`);
+        }
+
+
+        // updateTimeElapsed indicates how far through the video
+        // the current playback is by updating the timeElapsed element
+        function updateTimeElapsed() {
+            const time = formatTime(Math.round(video.currentTime));
+            timeElapsed.innerText = `${time.minutes}:${time.seconds}`;
+            timeElapsed.setAttribute('datetime', `${time.minutes}m ${time.seconds}s`);
+        }
+
+        // updateProgress indicates how far through the video
+        // the current playback is by updating the progress bar
+        function updateProgress() {
+            seek.value = Math.floor(video.currentTime);
+            progressBar.value = Math.floor(video.currentTime);
+        }
+
+        function skipAhead(event) {
+            const skipTo = event.target.dataset.seek
+                ? event.target.dataset.seek
+                : event.target.value;
+            video.currentTime = skipTo;
+            progressBar.value = skipTo;
+            seek.value = skipTo;
+        }
+
+        // updateSeekTooltip uses the position of the mouse on the progress bar to
+        // roughly work out what point in the video the user will skip to if
+        // the progress bar is clicked at that point
+        // function updateSeekTooltip(event) {
+        //     console.log(parseInt(event.target.getAttribute('max'), 10));
+        //     console.log(parseInt(event.target.getAttribute('max')));
+        //     const skipTo = Math.round(
+        //         (event.offsetX / event.target.clientWidth) *
+        //         parseInt(event.target.getAttribute('max'), 10)
+        //     );
+        //     const t = formatTime(skipTo);
+        //     seekTooltip.textContent = `${t.minutes}:${t.seconds}`;
+        //     const rect = video.getBoundingClientRect();
+        //     seekTooltip.style.left = `${event.pageX - rect.left}px`;
+        // }
+
+        const playFunc = () => {
+            console.log('play');
+            if (video.paused || video.ended) {
+                video.play();
+                // console.log(videoControls.closest('.video-controls-container'));
+                videoControls.closest('.video-controls-container').classList.add('hidden');
+            } else {
+                video.pause();
+                bigPlayBtn.classList.remove('hidden');
+                // console.log(videoControls.closest('.video-controls-container'));
+                videoControls.closest('.video-controls-container').classList.remove('hidden');
+            }
+        }
+        function hideControls() {
+            if (video.paused) {
+                return;
+            }
+            // console.log(videoControls.closest('.video-controls-container'));
+            videoControls.closest('.video-controls-container').classList.add('hidden');
+        }
+
+        // showControls displays the video controls
+        function showControls() {
+            // console.log(videoControls.closest('.video-controls-container'));
+            videoControls.closest('.video-controls-container').classList.remove('hidden');
+        }
+
+        // const pauseFunc = () => {
+        //     console.log('pause');
+        // }
+
+        const backwardFunc = () => {
+            console.log('backward');
+            const skipTo = video.currentTime - 5;
+            video.currentTime = skipTo;
+            progressBar.value = skipTo;
+            seek.value = skipTo;
+        }
+        const forwardFunc = () => {
+            console.log('forward');
+            const skipTo = video.currentTime + 5;
+            video.currentTime = skipTo;
+            progressBar.value = skipTo;
+            seek.value = skipTo;
+        }
+
+        const speedFunc = (e) => {
+            console.log('speed');
+            console.log(e.target);
+            console.log(e.target.value);
+            console.log(video.defaultPlaybackRate);
+            // video.defaultPlaybackRate = 1.0;
+// video.play();
+
+/* now play three times as fast just for the heck of it */
+console.log(video.playbackRate);
+video.playbackRate = e.target.value;
+console.log(video.playbackRate);
+        }
+
+        const bookmarkFunc = () => {
+            console.log('bookmark');
+        }
+
+        const muteFunc = () => {
+            video.muted = !video.muted;
+            console.log('mute');
+            console.log(video.muted);
+        }
+
+        const videoSettingFunc = () => {
+            console.log('videoSetting');
+        }
+
+        const fullsizeFunc = () => {
+            console.log('fullsize');
+              if (document.fullscreenElement) {
+                document.exitFullscreen();
+              } else if (document.webkitFullscreenElement) {
+                // Need this to support Safari
+                document.webkitExitFullscreen();
+              } else if (videoContainer.webkitRequestFullscreen) {
+                // Need this to support Safari
+                videoContainer.webkitRequestFullscreen();
+              } else {
+                videoContainer.requestFullscreen();
+              }
+        }
+        const videoWidthFunc = () => {
+            console.log('videoWidth');
+        }
+        // const playFunc = () => {
+        //     console.log('play');
+        // }
+
+
+
+        playBtn.addEventListener('click', playFunc);
+        bigPlayBtn.addEventListener('click', videoPlayFunc);
+        // pauseBtn.addEventListener('click', pauseFunc);
+        backwardBtn.addEventListener('click', backwardFunc);
+        forwardBtn.addEventListener('click', forwardFunc);
+        selectSpeed.addEventListener('change', speedFunc);
+        bookmarkBtn.addEventListener('click', bookmarkFunc);
+        muteBtn.addEventListener('click', muteFunc);
+        videoSettingBtn.addEventListener('click', videoSettingFunc);
+        fullsizeBtn.addEventListener('click', fullsizeFunc);
+        videoWidthBtn.addEventListener('click', videoWidthFunc);
+        video.addEventListener('timeupdate', updateTimeElapsed);
+        video.addEventListener('timeupdate', updateProgress);
+        videoContainer.addEventListener('mouseenter', showControls);
+        videoContainer.addEventListener('mouseleave', hideControls);
+        // seek.addEventListener('mousemove', updateSeekTooltip);
+        seek.addEventListener('input', skipAhead);
+
+        // video.addEventListener('play', updatePlayButton);
+        // video.addEventListener('pause', updatePlayButton);
+        // video.addEventListener('volumechange', updateVolumeIcon);
+        // video.addEventListener('loadedmetadata', initializeVideo);
+        // video.addEventListener('click', animatePlayback);
+        // video.addEventListener('mouseenter', showControls);
+        // video.addEventListener('mouseleave', hideControls);
+        // videoControls.addEventListener('mouseenter', showControls);
+        // videoControls.addEventListener('mouseleave', hideControls);
+        // videoContainer.addEventListener('fullscreenchange', updateFullscreenButton);
+    }, false);
+
+
 }
-
-// formatTime takes a time length in seconds and returns the time in
-// minutes and seconds
-function formatTime(timeInSeconds) {
-  const result = new Date(timeInSeconds * 1000).toISOString().substr(11, 8);
-
-  return {
-    minutes: result.substr(3, 2),
-    seconds: result.substr(6, 2),
-  };
-}
-
-
-// initializeVideo sets the video duration, and maximum value of the
-// progressBar
-function initializeVideo() {
-  const videoDuration = Math.round(video.duration);
-  console.log(videoDuration);
-  seek.setAttribute('max', videoDuration);
-  progressBar.setAttribute('max', videoDuration);
-  const time = formatTime(videoDuration);
-  duration.innerText = `${time.minutes}:${time.seconds}`;
-  duration.setAttribute('datetime', `${time.minutes}m ${time.seconds}s`);
-}
-
-function updateTimeElapsed() {
-  const time = formatTime(Math.round(video.currentTime));
-  timeElapsed.innerText = `${time.minutes}:${time.seconds}`;
-  timeElapsed.setAttribute('datetime', `${time.minutes}m ${time.seconds}s`);
-}
-
-// updateTimeElapsed indicates how far through the video
-// the current playback is by updating the timeElapsed element
-function updateTimeElapsed() {
-  const time = formatTime(Math.round(video.currentTime));
-  timeElapsed.innerText = `${time.minutes}:${time.seconds}`;
-  timeElapsed.setAttribute('datetime', `${time.minutes}m ${time.seconds}s`);
-}
-
-// updateProgress indicates how far through the video
-// the current playback is by updating the progress bar
-function updateProgress() {
-  seek.value = Math.floor(video.currentTime);
-  progressBar.value = Math.floor(video.currentTime);
-}
-
-// updateSeekTooltip uses the position of the mouse on the progress bar to
-// roughly work out what point in the video the user will skip to if
-// the progress bar is clicked at that point
-function updateSeekTooltip(event) {
-    // console.log(event.offsetX);
-    // console.log(event.target.clientWidth);
-    console.log(parseInt(event.target.getAttribute('max'), 10));
-    console.log(parseInt(event.target.getAttribute('max')));
-  const skipTo = Math.round(
-    (event.offsetX / event.target.clientWidth) *
-            parseInt(event.target.getAttribute('max'), 10)
-  );
-  seek.setAttribute('data-seek', skipTo);
-  const t = formatTime(skipTo);
-  seekTooltip.textContent = `${t.minutes}:${t.seconds}`;
-  const rect = video.getBoundingClientRect();
-  seekTooltip.style.left = `${event.pageX - rect.left}px`;
-}
-
-const playFunc = () => {
-    console.log('play');
-    if (video.paused || video.ended) {
-      video.play();
-    } else {
-      video.pause();
-    }
-}
-
-// const pauseFunc = () => {
-//     console.log('pause');
-// }
-
-const backwardFunc = () => {
-    console.log('backward');
-}
-const forwardFunc = () => {
-    console.log('forward');
-}
-
-const speedFunc = () => {
-    console.log('speed');
-}
-
-const bookmarkFunc = () => {
-    console.log('bookmark');
-}
-
-const muteFunc = () => {
-    console.log('mute');
-}
-
-const videoSettingFunc = () => {
-    console.log('videoSetting');
-}
-
-const fullsizeFunc = () => {
-    console.log('fullsize');
-}
-const videoWidthFunc = () => {
-    console.log('videoWidth');
-}
-
-// const playFunc = () => {
-//     console.log('play');
-// }
-
-
-
 
 const overviewMain = () => {
     courses.forEach(course => {
         let overviewBody;
+        let videoLesson;
+        let pdfLesson;
         if (course.courseId == courseId) {
             instructorImage.forEach(img => {
                 img.src = course.instructorImage;
@@ -710,21 +802,196 @@ const overviewMain = () => {
                     overviewContainer.innerHTML += overviewBody;
                 });
             });
-            lessonCardBody.innerHTML = `
-            <div class="flex items-center justify-center gap-10">
-                <img src="../assets/images/pdf icon.png" class="w-16 md:w-36"
-                    alt="pdf file">
-                <div class="course-info w-44 md:w-64">
-                    <p class="font-light text-2xl mb-3">
-                        ${course.lessons[lessonNo].sections[sectionNo].title}
-                    </p>
-                    <a href="" class="flex text-white font-medium text-lg justify-start px-5 gap-5" download>
-                        <img src="../assets/images/Download Icon.png" class="w-6" alt="download">
-                        <span>Download</span>
-                    </a>
+            pdfLesson = `
+            <div class="pdf-container p-2 w-full h-full relative">
+                <div class="flex items-center h-full justify-center gap-10">
+                    <img src="../assets/images/pdf icon.png" class="w-16 md:w-36"
+                        alt="pdf file">
+                    <div class="course-info w-44 md:w-64">
+                        <p class="font-light text-2xl mb-3">
+                            ${course.lessons[lessonNo].sections[sectionNo].title}
+                        </p>
+                        <a href="" class="flex text-white font-medium text-lg justify-start px-5 gap-5" download>
+                            <img src="../assets/images/Download Icon.png" class="w-6" alt="download">
+                            <span>Download</span>
+                        </a>
+                    </div>
                 </div>
             </div>
             `;
+            videoLesson = `
+            <div class="video-container flex flex-column items-center w-full h-full relative">
+                <div class="video-body w-full h-full relative">
+                    <video controls class="video w-full h-full" id="video"
+                    preload="metadata">
+                    <!-- preload="metadata" poster="../assets/images/Cover image.png"> -->
+                        <source src="../assets/images/video.mp4" type="video/mp4">
+                        </source>
+                    </video>
+                </div>
+                <div class="video-controls-container hidden bg-black bg-opacity-20 absolute top-0 left-0 w-full h-full"
+                    id="video-controls-container">
+                    <div class="video-overlay absolute top-0 right-0 left-0 bottom-0">
+                        <button id="big-play-btn"
+                            class="btn w-14 absolute z-20 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                            <img src="../assets/images/play icon.png" alt="">
+                        </button>
+                    </div>
+                    <div
+                        class="course-info absolute text-white top-0 right-0 w-1/2 px-8 py-8">
+                        <div class="">
+                            <div
+                                class="course-icon mb-4 w-10 h-10 bg-white rounded-full p-2">
+                                <img src="../assets/images/skech@2x.png" alt="">
+                            </div>
+                            <p class="font-normal my-1 text-2xl">
+                                Product Designer For Beginners
+                            </p>
+                            <div
+                                class="instructor-tag-container rounded-sm overflow-hidden">
+                                <div
+                                    class="instructor-tag-box bg-blue-300 pl-6 py-1.5 rounded-bl-full">
+                                    <p class="text-base">Ogoluwa Ojewale</p>
+                                    <p class="text-xs font-light text-capitalize">Senior
+                                        Product designer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-controls bg-black bg-opacity-10 flex flex-col right-0 left-0 absolute bottom-0">
+                        <div class="relative">
+                            <div class="video-progress relative">
+                                <progress class="w-full absolute top-0" id="progress-bar" value="0"
+                                    min="0"></progress>
+                                    <!-- <input class="seek" id="seek" value="0" min="0" -->
+                                <input class="seek cursor-pointer w-full absolute top-0 m-0" id="seek" value="0" min="0"
+                                    type="range" step="1">
+                                <!-- <div class="seek-tooltip" id="seek-tooltip">00:00</div> -->
+                            </div>
+                        </div>
+                        <div class="items-end flex justify-between pt-1 pb-2 px-2.5">
+                            <div class="flex items-center gap-1 controls-left">
+                                <div class="play-control">
+                                    <button class="btn block" id="play-btn"
+                                        data-title="Play (k)">
+                                        <div class="play">
+                                            <img src="../assets/images/videoactive-sm.png"
+                                                class="w-4" alt="">
+                                        </div>
+                                        <div class="pause hidden">
+                                            <img src="../assets/images/play.png"
+                                                class="w-4" alt="">
+                                        </div>
+                                    </button>
+                                    <!-- <button class="btn hidden" data-title="Pause (k)" id="pause-btn">
+                                <img src="../assets/images/play.png" class="w-5" alt="">
+                            </button> -->
+                                </div>
+                                <div class="backward-control">
+                                    <button class="btn block" id="backward-btn"
+                                        data-title="-10 seconds">
+                                        <img src="../assets/images/move-left.png"
+                                            class="w-5" alt="">
+                                    </button>
+                                </div>
+                                <div class="speed-control">
+                                    <!-- <button class="btn"> -->
+                                    <select
+                                        class="bg-white select-speed border-0 inline-block rounded-md px-1 text-sm font-medium color-dark"
+                                        id="select-speed">
+                                        <option value="0.25" class="text-tertiary">0.25x
+                                        </option>
+                                        <option value="0.50" class="text-tertiary">0.50x
+                                        </option>
+                                        <option value="0.75" class="text-tertiary">0.75x
+                                        </option>
+                                        <option value="1.00" class="text-tertiary">1.00x
+                                        </option>
+                                        <option value="1.25" class="text-tertiary">1.25x
+                                        </option>
+                                        <option value="1.50" class="text-tertiary">1.50x
+                                        </option>
+                                        <option value="1.75" class="text-tertiary">1.75x
+                                        </option>
+                                        <option value="2.00" class="text-tertiary">2.00x
+                                        </option>
+                                    </select>
+                                    <!-- </button> -->
+                                </div>
+                                <div class="forward-control" id="forward-btn"
+                                    data-title="+10">
+                                    <button class="btn block">
+                                        <img src="../assets/images/move-right.png"
+                                            class="w-5" alt="">
+                                    </button>
+                                </div>
+                                <div class="time tracking-wider text-xs font-light">
+                                    <time id="time-elapsed">00 : 00</time>
+                                    <span> / </span>
+                                    <time id="duration">00 : 00</time>
+                                </div>
+                                <div class="bookmark-control">
+                                    <button class="btn block" id="bookmark-btn">
+                                        <img src="../assets/images/bookmark.png"
+                                            class="w-5" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-1 controls-right">
+                                <div class="play-control">
+                                    <button class="btn block" id="mute-btn"
+                                        data-title="Play (k)">
+                                        <img src="../assets/images/volume.png"
+                                            class="w-5" alt="">
+                                    </button>
+                                </div>
+                                <div class="play-control">
+                                    <button class="btn block" data-title="Play (k)">
+                                        <img src="../assets/images/paper.png"
+                                            class="w-5" alt="">
+                                    </button>
+                                </div>
+                                <div class="speed-control">
+                                    <!-- <button class="btn"> -->
+                                    <select
+                                        class="bg-white select-speed inline-block border-0 rounded-md px-1 text-sm font-medium color-dark"
+                                        id="select-speed">
+                                        <option value="cc" class="text-tertiary">cc
+                                        </option>
+                                    </select>
+                                    <!-- </button> -->
+                                </div>
+                                <div class="setting-control">
+                                    <button class="btn block" id="video-setting-btn">
+                                        <img src="../assets/images/setting.png"
+                                            class="w-5" alt="">
+                                    </button>
+                                </div>
+                                <div class="fullsize-control">
+                                    <button class="btn block" id="fullsize-btn"
+                                        data-title="-10 seconds">
+                                        <img src="../assets/images/fullsize.png"
+                                            class="w-5" alt="">
+                                    </button>
+                                </div>
+                                <div class="width-control">
+                                    <button class="btn block" id="video-width-btn">
+                                        <img src="../assets/images/width.png"
+                                            class="w-5" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `;
+            if (course.lessons[lessonNo].sections[sectionNo].type === 'video') {
+                lessonCardBody.innerHTML = videoLesson;
+                videoFunc();
+            } else {
+                lessonCardBody.innerHTML = pdfLesson;
+            }
             prevBtn.addEventListener('click', () => {
                 if (sectionNo > 0) {
                     sectionNo--;
@@ -939,6 +1206,7 @@ radioTabs.forEach(radioTab => {
     })
 });
 
+// videoFunc();
 
 
 // playBtn.addEventListener('click', playFunc);
