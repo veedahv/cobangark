@@ -1,3 +1,6 @@
+const aside = document.querySelector('#aside');
+const hamburger = document.querySelector('#hamburger');
+const navToggle = document.querySelector('#nav-toggle');
 const menuContain = document.querySelector('#menu-contain');
 const logoContain = document.querySelector('#logo-contain');
 const searchContain = document.querySelector('#search-contain');
@@ -64,3 +67,12 @@ const addNotifications = () => {
 }
 
 addNotifications();
+
+document.addEventListener('click',(e) => {
+    let isAsideInsideElement = aside.contains(e.target);
+    let isHamburgInsideElement = menuContain.contains(e.target);
+    let isNavToggleInsideElement = navToggle.contains(e.target);
+    if (!isAsideInsideElement && !isHamburgInsideElement && !isNavToggleInsideElement) {
+        navToggle.checked = false;
+    }
+})
